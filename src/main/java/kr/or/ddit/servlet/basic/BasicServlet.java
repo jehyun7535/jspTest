@@ -36,10 +36,10 @@ public class BasicServlet extends HttpServlet{
 		//로그를 생성하지는 않지만 메소드 인자인 문자열 + 문자열 ==> 문자열 결합 연산은 발생한다
 		
 		//if(설정로그레벨 <= debug) {
-			logger.debug("basicServlet.doGet() userid paramter : " + req.getParameter("userid") );
+		logger.debug("basicServlet.doGet() userid paramter : " + req.getParameter("userid") );
 		//}
 		logger.debug("basicServlet.doGet() userid paramter : {} {}",
-				 req.getParameter("userid"), req.getParameter("password" ));	
+		req.getParameter("userid"), req.getParameter("password" ));	
 			
 		resp.setContentType("text/html;charset=utf-8");
 		
@@ -64,7 +64,7 @@ public class BasicServlet extends HttpServlet{
 		// localhost/index.jsp ==> servlet 설정에 있는 web.xml에 등록된
 		//							*.jsp, *.jspx url-pattern에 따라 jsp 라는 이름의
 		//							서블릿에서 처리(JspServlet)
-		// localhost/doc/2020.12.23.txt 정적자료 ==>
+		// localhost/doc/2020.12.23.txt 정적자료 ==> 내일 정리
 		
 		PrintWriter pw = resp.getWriter();
 		pw.println("<html>");
