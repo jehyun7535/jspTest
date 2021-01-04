@@ -35,10 +35,10 @@ public class TimesTablesServlet extends HttpServlet {
 		pw.println("<h1>servlet 구구단</h1>");
 		pw.println("<table border='1'>");
 
-		for(int i=1; i<=9; i++) {
+		for(int i=2; i<=9; i++) {
 			pw.println("  <tr>");
 		
-		for(int j = 2; j<10; j++) {
+		for(int j = 1; j<10; j++) {
 			pw.println("<td>" + i + " * " + j + " = " + i * j + "</td>");
 		}
 		pw.println("</tr>");

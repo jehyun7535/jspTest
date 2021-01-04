@@ -28,16 +28,24 @@
     <servlet-name>TimesTablesServlet</servlet-name>
     <url-pattern>/TimesTablesServlet</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>LoginController</display-name>
     <servlet-name>LoginController</servlet-name>
     <servlet-class>kr.or.ddit.login.web.LoginController</servlet-class>
-    
   </servlet>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
     <url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
+<!--   <servlet> -->
+<!--     <description></description> -->
+<!--     <display-name>sumCalculation</display-name> -->
+<!--     <servlet-name>sumCalculation</servlet-name> -->
+<!--     <servlet-class>kr.or.ddit.servlet.scope.sumCalculation</servlet-class> -->
+<!--   </servlet> -->
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>sumCalculation</servlet-name> -->
+<!--     <url-pattern>/sumCalculation</url-pattern> -->
+<!--   </servlet-mapping> -->
 </web-app>
