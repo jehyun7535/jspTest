@@ -48,4 +48,28 @@
 <!--     <servlet-name>sumCalculation</servlet-name> -->
 <!--     <url-pattern>/sumCalculation</url-pattern> -->
 <!--   </servlet-mapping> -->
+
+	<!-- error page 설정 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404/404.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500/500.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<!-- class full name : 패키지.클래스명 -->
+		<exception-type> java.lang.ArithmeticException</exception-type>
+		<location>/error/type/ariError.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<!-- class full name : 패키지.클래스명 -->
+		<exception-type> java.lang.ArithmeticException</exception-type>
+		<location>/error/type/runError.jsp</location>
+	</error-page>
+	
 </web-app>

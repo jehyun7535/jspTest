@@ -25,18 +25,36 @@ public class sumCalculation extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.setContentType("text/html;charset=utf-8");
+		
 		int start = Integer.parseInt(req.getParameter("start"));
 		int end = Integer.parseInt(req.getParameter("end"));
+		
 		
 		int sumResult = 0;
 		for(int i = start; i <= end; i++) {
 			sumResult = sumResult + i;
 		}
-		logger.debug("start : " + start + "에서" + "end : " + end + "합 :" + sumResult);
+		
+		logger.debug("start:{}, end:{}", start, end);
+		logger.debug("sumResult:{}", sumResult);
+	
+		
+		int mul1 = Integer.parseInt(req.getParameter("mul1"));
+		int mul2 = Integer.parseInt(req.getParameter("mul2"));
+		
+		int mulresult = 0;
+		mulresult = mul1 * mul2;
+		
+		logger.debug("mul1:{}, mul2:{}", mul1, mul2);
+		logger.debug("result:{}", mulresult);
 		
 		req.getSession().setAttribute("start", start);
 		req.getSession().setAttribute("end", end);		
 		req.getSession().setAttribute("sumResult", sumResult);
+		
+		req.getSession().setAttribute("mul1", mul2);
+		req.getSession().setAttribute("mul2", mul2);		
+		req.getSession().setAttribute("result", mulresult);
 		
 		req.getRequestDispatcher("jsp/sumResult.jsp").forward(req, res);
 

@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action = "<%=request.getContextPath() %>/sumCalculation" method="post">
- 	결과값: <%=session.getAttribute("sumResult") %> <br>
- 	곱셈 결과값: <%=session.getAttribute("result") %>
-	</form>
+	<%
+		int a = 5;
+		int b = 0;
+		int c = a / 0;
+	%>
 </body>
 </html>
