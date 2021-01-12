@@ -50,4 +50,13 @@ public class UserDao implements UserDaoI{
 		return userList;
 	}
 
+	@Override
+	public int selectAllUserCnt() {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		int userCnt = sqlSession.selectOne("users.selectAllUserCnt");
+		
+		sqlSession.close();
+		return userCnt;
+	}
+	
 }

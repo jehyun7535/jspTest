@@ -1,11 +1,14 @@
 package kr.or.ddit.user.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class EmpVo {
 	private int empno;
 	private String ename;
 	private String job;
 	private int mgr;
-	private String hiredate;
+	private Date hiredate;
 	private int sal;
 	private int comm;
 	private int deptno;
@@ -37,11 +40,25 @@ public class EmpVo {
 	public void setMgr(int mgr) {
 		this.mgr = mgr;
 	}
-	public String getHiredate() {
+	public Date getHiredate() {
 		return hiredate;
 	}
-	public void setHiredate(String hiredate) {
+	public void setHiredate(Date hiredate) {
 		this.hiredate = hiredate;
+	}
+	public String getHiredate_fmt() {
+		//hiredate 필드가 null 이면 "" 문자열 반환
+		//hiredate 필드가 null이 아니면 SimpleDateFormat을
+		//생성하여 yyyy.mm.dd 포맷의 문자열로 변환하여 리턴
+		if(this.hiredate == null) {
+			return "";		
+		}
+		else {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+			return sdf.format(this.hiredate);
+			
+			//return new SimpleDateFormat("YYYY.MM.dd").format(this.hiredate);
+		}
 	}
 	public int getSal() {
 		return sal;

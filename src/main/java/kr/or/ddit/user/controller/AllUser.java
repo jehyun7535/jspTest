@@ -16,6 +16,7 @@ import kr.or.ddit.user.service.UserService;
 public class AllUser extends HttpServlet{
 	   
 	   private UserService userService = new UserService();
+	   
 	   @Override
 	   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		   req.setCharacterEncoding("UTF-8");
@@ -27,4 +28,5 @@ public class AllUser extends HttpServlet{
 	   req.getRequestDispatcher("/user/allUser.jsp").forward(req, resp);
 	   
 	   }
+	   
 }

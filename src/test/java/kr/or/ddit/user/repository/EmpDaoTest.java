@@ -2,6 +2,7 @@ package kr.or.ddit.user.repository;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class EmpDaoTest {
 
 		/*** Then ***/
 		assertEquals(16, empList.size());
+		//emp 데이터는 14개
 	}
 	
 	@Test
@@ -35,26 +37,26 @@ public class EmpDaoTest {
 		int empno = 7369;
 
 		/***When***/
-		EmpVo user = empDao.selectEmp(empno);
+		EmpVo emp = empDao.selectEmp(empno);
 		
 		/***Then***/
-		assertNotNull(user);
-		assertEquals("SMITH", user.getEname());
+		assertNotNull(emp);
+		assertEquals("SMITH", emp.getEname());
 		
 	}
 	
-	//사용자 아이디가 존재하지 않을 때, 특정 사용자 조회
+	//사용자 empno 존재하지 않을 때, 특정 사용자 조회
 	@Test
 	public void selectEmpNotExsistTest() {
 		/***Given***/
 		EmpServiceI empService = new EmpService();
-		int empno = 7369;
+		int empno = 1111;
 
 		/***When***/
-		EmpVo user = empService.selectEmp(empno);
+		EmpVo emp = empService.selectEmp(empno);
 		
 		/***Then***/
-		assertNotNull(user);
+		assertNull(emp);
 
 	}
 	

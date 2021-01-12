@@ -41,6 +41,14 @@ public class EmpDao implements EmpDaoI{
 		
 		return empList;
 	}
-	
+
+	@Override
+	public int selectAllEmpCnt() {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		int empCnt = sqlSession.selectOne("emps.selectAllEmpCnt");
+		
+		sqlSession.close();
+		return empCnt;
+	}
 	
 }

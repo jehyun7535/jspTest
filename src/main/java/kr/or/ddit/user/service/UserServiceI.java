@@ -1,6 +1,7 @@
 package kr.or.ddit.user.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
@@ -15,5 +16,5 @@ public interface UserServiceI {
 	UserVo selectUser(String userid);
 	
 	//페이징처리
-	List<UserVo> selectPagingUser(PageVo vo);
+	Map<String, Object> selectPagingUser(PageVo vo);
 }

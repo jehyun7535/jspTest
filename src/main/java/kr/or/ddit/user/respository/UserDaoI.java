@@ -16,4 +16,10 @@ public interface UserDaoI {
 	
 	//페이징처리
 	List<UserVo> selectPagingUser(PageVo vo);
+
+	//사용자 전체 수 조회
+	int selectAllUserCnt();
+
+	
+	
 }

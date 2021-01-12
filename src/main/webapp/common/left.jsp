@@ -4,6 +4,14 @@
 	<li class="active"><a href="<%=request.getContextPath()%>/main.jsp">Main <span class="sr-only">(current)</span></a></li>
 	<li class="active"><a href="<%=request.getContextPath()%>/alluser">전체 사용자</a></li>
 	<li class="active"><a href="<%=request.getContextPath()%>/allemp">전체 직원</a></li>	
+	<li class="active"><a href="<%=request.getContextPath()%>/paginguser">사용자 페이징 리스트</a></li>	
+		<li class="active"><a href="<%=request.getContextPath()%>/pagingemp">직원 페이징 리스트</a></li>	
+	<%--
+		localhost/pagingUser?page=1&pageSize=5 로 요청시
+		pagingUser.jsp에서 페이지에 해당하는 상요자 5명만 출력 되도록 개발
+		(kr.or.ddit.user.controller.PaginUser.java, webapp/user/pagingUser.jsp)
+	 --%>
+	 
 	<%--
 		/allUser 요청을 처리할 servlet(controller)
 		kr.or.ddit.user.controller.AllUser

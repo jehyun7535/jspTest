@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.user.model.EmpVo"%>
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -42,37 +43,48 @@
 			<div class="container">
 				<table class="table">
 					<tr>
-						<th>사용자아이디</th>
-						<th>사용자이름</th>
-						<th>사용자별명</th>
-						<th>등록일시</th>
+						<th>사원</th>
+						<th>사원이름</th>
+						<th>담당역할</th>
+						<th>매니저사번</th>
+						<th>입사일자</th>
+						<th>급여</th>
+						<th>성과급</th>
+						<th>소속부서번호</th>
 					</tr>
 					<%
-					List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
+					List<EmpVo> empList = (List<EmpVo>) request.getAttribute("empList");
 
-					for (UserVo vo : userList) { 
+					for (EmpVo vo : empList) {
 					%>
 					<tr>
-					
-						<td><%=vo.getUserid()%></td>
-						<td><%=vo.getUsernm()%></td>
-						<td><%=vo.getAlias()%></td>
-						<td><%=vo.getReg_dt_fmt() %></td>
+						<td><%=vo.getEmpno()%></td>
+						<td><%=vo.getEname()%></td>
+						<td><%=vo.getJob()%></td>
+						<td><%=vo.getMgr()%></td>
+						<td><%=vo.getHiredate_fmt()%></td>
+						<td><%=vo.getSal()%></td>
+						<td><%=vo.getComm()%></td>
+						<td><%=vo.getDeptno()%></td>
 					</tr>
 					<%
 					}
-					%>					
+					%>
 				</table>
-			<a class="btn btn-default pull-right">사용자 등록</a>
 			</div>
+			<a class="btn btn-default pull-right">사용자 등록</a>
 
 			<div class="text-center">
 				<ul class="pagination">
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
+					<%
+					int j = 0;
+					j = (int)request.getAttribute("pagination");
+					for (int i = 1; i<j+1; i++) { 
+					%>
+				<li><a href="<%=request.getContextPath() %>/pagingemp?page=<%=i%>&pageSize=5"><%=i%></a></li>
+				<%
+					}
+				%>
 				</ul>
 			</div>
 		</div>

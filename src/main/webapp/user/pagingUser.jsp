@@ -68,11 +68,15 @@
 
 			<div class="text-center">
 				<ul class="pagination">
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
+					<%
+					int j = 0;
+					j = (int)request.getAttribute("pagination");
+					for (int i = 1; i<j+1; i++) { 
+					%>
+				<li><a href="<%=request.getContextPath() %>/paginguser?page=<%=i%>&pageSize=5"><%=i%></a></li>
+				<%
+					}
+				%>
 				</ul>
 			</div>
 		</div>
