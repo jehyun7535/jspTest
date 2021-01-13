@@ -46,10 +46,12 @@ public class PagingUser extends HttpServlet {
 		Map<String, Object> map = userService.selectPagingUser(vo);
 		
 		List<UserVo> userList =(List<UserVo>) map.get("userList");
-		int userCont = (int)map.get("userCnt");
-		int pagination = (int)Math.ceil((double)userCont/pagesize);
+		int userCnt = (int)map.get("userCnt");
+		int pagination = (int)Math.ceil((double)userCnt/pagesize);
 		req.setAttribute("userList", userList);
 		req.setAttribute("pagination", pagination);
+		
+		req.setAttribute("pageVo", vo);
 
 		req.getRequestDispatcher("/user/pagingUser.jsp").forward(req, resp);
 		

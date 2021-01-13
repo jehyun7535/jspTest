@@ -62,7 +62,7 @@
 						<td><%=vo.getEname()%></td>
 						<td><%=vo.getJob()%></td>
 						<td><%=vo.getMgr()%></td>
-						<td><%=vo.getHiredate()%></td>
+						<td><%=vo.getHiredate_fmt()%></td>
 						<td><%=vo.getSal()%></td>
 						<td><%=vo.getComm()%></td>
 						<td><%=vo.getDeptno()%></td>

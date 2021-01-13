@@ -4,16 +4,55 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UserVo {
-	
+
 	private String userid;
 	private String usernm;
 	private String pass;
 	private Date reg_dt;
 	private String alias;
-	
+	private String addr1;
+	private String addr2;
+	private String zipcode;
+
+	public String getAddr1() {
+		return addr1 == null ? "" : addr1;
+	}
+
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+
+	public String getAddr2() {
+		return addr2 == null ? "" : addr2;
+	}
+
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+
+	public String getZipcode() {
+		return zipcode == null ? "" : zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
 	// 대다수의 framework는 기본 생성자를 필요로 한다
 	public UserVo() {
 		
+	}
+	
+	public UserVo(String userid, String usernm, String pass, Date reg_dt, String alias, String addr1, String addr2,
+			String zipcode) {
+		this.userid = userid;
+		this.usernm = usernm;
+		this.pass = pass;
+		this.reg_dt = reg_dt;
+		this.alias = alias;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.zipcode = zipcode;
 	}
 
 	public String getUserid() {
@@ -47,21 +86,21 @@ public class UserVo {
 	public void setReg_dt(Date reg_dt) {
 		this.reg_dt = reg_dt;
 	}
-	
+
 	public String getReg_dt_fmt() {
-		//reg_dt 필드가 null 이면 "" 문자열 반환
-		//reg_dt 필드가 null이 아니면 SimpleDateFormat을
-		//생성하여 yyyy.mm.dd 포맷의 문자열로 변환하여 리턴
-		if(this.reg_dt == null) {
-			return "";		
-		}
-		else {
+		// reg_dt 필드가 null 이면 "" 문자열 반환
+		// reg_dt 필드가 null이 아니면 SimpleDateFormat을
+		// 생성하여 yyyy.mm.dd 포맷의 문자열로 변환하여 리턴
+		if (this.reg_dt == null) {
+			return "";
+		} else {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 			return sdf.format(this.reg_dt);
-			
-			//return new SimpleDateFormat("YYYY.MM.dd").format(this.reg_dt);
+
+			// return new SimpleDateFormat("YYYY.MM.dd").format(this.reg_dt);
 		}
 	}
+
 	public String getAlias() {
 		return alias;
 	}
@@ -69,6 +108,5 @@ public class UserVo {
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
-	
-	
+
 }
