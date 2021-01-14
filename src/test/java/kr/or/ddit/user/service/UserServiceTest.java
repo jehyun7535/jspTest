@@ -4,8 +4,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import kr.or.ddit.common.model.PageVo;
@@ -14,27 +18,53 @@ import kr.or.ddit.user.respository.UserDao;
 import kr.or.ddit.user.respository.UserDaoI;
 
 public class UserServiceTest {
+	
+	private UserServiceI userService; 
+	
+	@Before
+	public void setup() {
+		userService = new UserService();
+		// 테스트에서 사용할 신규 사용자 추가
+		UserVo userVo = new UserVo("testUser", "테스트용", "1234", new Date(),
+				"테스트", "대전시 중구 중앙로79", "4층", "34940");
+
+		userService.registUser(userVo);
+
+		// 신규 입력 테스트를 위해 테스트 과정에서 입력된 데이터를 삭제
+		userService.deleteUser("ddit_n");
+		
+//		@Before		 == >	 @Test registUser 		==> @After
+//		17 + 1(testUser) 	-1(ddit_n) +1 (ddit_n) 	-1(testUser)17
+//		
+//		@Before		 == >	 @Test selectAllUser 		==> @After
+//		17 + 1(testUser) 		16, select결과
+	}
+	
+	@After
+	public void tearDown() {
+		userService.deleteUser("testUser");
+	}
+	
 	@Test
 	public void selectAllUserTest() {
 		/*** Given ***/
-		UserDaoI userDao = new UserDao();
-
+//		UserDaoI userDao = new UserDao();
 		/*** When ***/
-		List<UserVo> userList = userDao.selectAllUser();
+		List<UserVo> userList = userService.selectAllUser();
 
 		/*** Then ***/
-		assertEquals(16, userList.size());
+		assertEquals(19, userList.size());
 	}
 	
 	// 사용자 아이디를 이용하여 특정 사용자 정보 조회
 	@Test
 	public void selectUserTest() {
 		/***Given***/
-		UserDaoI userDao = new UserDao();
+//		UserDaoI userDao = new UserDao();
 		String userid = "brown";
-
+		UserServiceI userService = new UserService();
 		/***When***/
-		UserVo user = userDao.selectUser(userid);
+		UserVo user = userService.selectUser(userid);
 		
 		/***Then***/
 		assertNotNull(user);
@@ -60,14 +90,38 @@ public class UserServiceTest {
 	//사용자 페이징 조회 테스트
 	@Test
 	public void selectPagingUserTest() {
-		/***Given***/
-		UserDaoI userDao = new UserDao();
+		/*** Given ***/
 		PageVo vo = new PageVo(2, 5);
-		
-		/***When***/
-		List<UserVo> userList = userDao.selectPagingUser(vo);
-		
-		/***Then***/
-		assertEquals(5, userList.size());
+
+		/*** When ***/
+		Map<String, Object> userList = userService.selectPagingUser(vo);
+
+		/*** Then ***/
+		assertEquals(2, userList.size());
+	}
+	
+	@Test
+	public void modifyUserTest() {
+		/*** Given ***/
+		// userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
+		UserVo userVo = new UserVo("ddit", "대덕인재", "dditPass", new Date(), "개발원", "대전시 중구 중앙로79", "4층", "34940");
+
+		/*** When ***/
+		int updateCnt = userService.modifyUser(userVo);
+
+		/*** Then ***/
+		assertEquals(1, updateCnt);
+	}
+	
+	@Test
+	public void deleteUserTest() {
+		/*** Given ***/
+		// 해당 테스트가 실행될 때는 testUser라는 사용자가 before메소드에 의해 등록이 된 상태
+		String userid = "testUser";
+		/*** When ***/
+		int deleteCnt = userService.deleteUser(userid);
+		/*** Then ***/
+		assertEquals(1, deleteCnt);
+
 	}
 }

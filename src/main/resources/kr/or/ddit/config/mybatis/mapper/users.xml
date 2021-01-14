@@ -36,7 +36,8 @@
 		SELECT COUNT(*)
 		FROM users
 	</select>
-	
+
+	<!-- 사용자 수정 -->	
 	<update id="modifyUser" parameterType="userVo">
 		UPDATE users SET usernm = #{usernm},
 		pass = #{pass},
@@ -48,8 +49,16 @@
 		WHERE userid = #{userid}
 	</update>
 	
+	<!-- 사용자 등록 -->
 	<insert id="registUser" parameterType="userVo">
 		INSERT INTO users (usernm, pass, reg_dt, alias, addr1, addr2, zipcode, userid)
 		VALUES (#{usernm}, #{pass}, sysdate, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{userid})
 	</insert>
+
+	<!-- 사용자 삭제 -->	
+	<delete id="deleteUser" parameterType="string">
+		DELETE users 
+		WHERE userid = #{value}
+	</delete>
+	
 </mapper>

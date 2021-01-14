@@ -21,6 +21,8 @@ public interface UserServiceI {
 	int modifyUser(UserVo userVo);
 	
 	int registUser(UserVo userVo);
+	
+	int deleteUser(String userid);
 }
 
 

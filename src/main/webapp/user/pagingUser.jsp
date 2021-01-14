@@ -102,7 +102,7 @@ $(function() {
 					페이지 사이즈 : 5
 					전체 페이지 수 : 4페이지 --%>
 					<li class="prev">
-					<a href="<%=request.getContextPath() %>/paginguser?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
+					<a href="<%=request.getContextPath() %>/pagingUser?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
 					</li>
 					<%
 					int j = 0;
@@ -114,11 +114,11 @@ $(function() {
 						<li class="active"><span><%=i %></span></li>
 					<%}
 					else{%>
-				<li><a href="<%=request.getContextPath() %>/paginguser?page=<%=i%>&pageSize=<%=pageVo.getPageSize()%>"><%=i%></a></li>
+				<li><a href="<%=request.getContextPath() %>/pagingUser?page=<%=i%>&pageSize=<%=pageVo.getPageSize()%>"><%=i%></a></li>
 				<%}%>
 			<%}%>
 			<li class="next">
-			<a href="<%=request.getContextPath() %>/paginguser?page=<%=pagination%>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+			<a href="<%=request.getContextPath() %>/pagingUser?page=<%=pagination%>&pageSize=<%=pageVo.getPageSize()%>">»</a>
 			</li>
 				</ul>
 			</div>

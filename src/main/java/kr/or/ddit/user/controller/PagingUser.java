@@ -14,7 +14,7 @@ import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 
-@WebServlet("/paginguser")
+@WebServlet("/pagingUser")
 public class PagingUser extends HttpServlet {
 
 	private UserService userService = new UserService();

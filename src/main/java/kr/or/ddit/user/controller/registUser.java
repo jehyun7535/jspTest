@@ -36,15 +36,15 @@ public class registUser extends HttpServlet {
 		String usernm = req.getParameter("usernm");
 		String pass = req.getParameter("pass");
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-		Date reg_dt = null;
-		//타입 변환
-		try {
-			reg_dt = sdf.parse(req.getParameter("reg_dt"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+//		Date reg_dt = null;
+//		//타입 변환
+//		try {
+//			reg_dt = sdf.parse(req.getParameter("reg_dt"));
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		Date reg_dt = new Date();
 		String alias = req.getParameter("alias");
 		String addr1 = req.getParameter("addr1");
 		String addr2 = req.getParameter("addr2");

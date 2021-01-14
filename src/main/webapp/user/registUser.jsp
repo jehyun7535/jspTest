@@ -112,7 +112,7 @@ $(function(){
 							<% String reg_dt = request.getParameter("reg_dt");
 								reg_dt = reg_dt == null ? "" : reg_dt;%>							
 							<input type="text" class="form-control" id="reg_dt" name="reg_dt"
-								placeholder="등록일시 자동생성" value="<%=reg_dt%>" readonly/>
+								placeholder="등록일시 자동생성" value="<%=reg_dt%>" readonly>
 						</div>
 					</div>
 					
