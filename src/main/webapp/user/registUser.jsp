@@ -65,16 +65,20 @@ $(function(){
 					<div class="form-group">
 						<label class="col-sm-2 control-label">사용자 아이디</label>
 							<div class="col-sm-10">
+							<% String userId = request.getParameter("userId");
+							userId = userId == null ? "" : userId;%>
 							<label><input type="text" id="userId" name="userId" 
-							placeholder="아이디입력" class="form-control"></label>
+							placeholder="아이디입력" value = "<%=userId%>" class="form-control"></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="usernm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
+							<% String usernm = request.getParameter("usernm");
+								usernm = usernm == null ? "" : usernm;%>						
 							<input type="text" class="form-control" id="usernm" name="usernm"
-								placeholder="사용자 이름" value=""/>
+								placeholder="사용자 이름" value="<%=usernm%>"/>
 						</div>
 					</div>
 					
@@ -84,8 +88,10 @@ $(function(){
 					<div class="form-group">
 						<label for="alias" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
+							<% String alias = request.getParameter("alias");
+								alias = alias == null ? "" : alias;%>						
 							<input type="text" class="form-control" id="alias" name="alias"
-								placeholder="별명" value=""/>
+								placeholder="별명" value="<%=alias%>"/>
 						</div>
 					</div>
 		
@@ -93,24 +99,30 @@ $(function(){
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
+							<% String pass = request.getParameter("pass");
+								pass = pass == null ? "" : pass;%>						
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="비밀번호" value=""/>
+								placeholder="비밀번호" value="<%=pass%>"/>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="reg_dt" class="col-sm-2 control-label">등록일시</label>
 						<div class="col-sm-10">
+							<% String reg_dt = request.getParameter("reg_dt");
+								reg_dt = reg_dt == null ? "" : reg_dt;%>							
 							<input type="text" class="form-control" id="reg_dt" name="reg_dt"
-								placeholder="" value=""/>
+								placeholder="등록일시 자동생성" value="<%=reg_dt%>" readonly/>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="addr1" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
+							<% String addr1 = request.getParameter("addr1");
+								addr1 = addr1 == null ? "" : addr1;%>						
 							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="도로주소" value="" readonly/>
+								placeholder="도로주소" value="<%=addr1 %>" readonly/>
 						</div>
 						<div class="col-sm-2">
 							<button type="button" id="addrBtn" class="btn btn-default">주소검색</button>
@@ -120,16 +132,20 @@ $(function(){
 					<div class="form-group">
 						<label for="addr2" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
+							<% String addr2 = request.getParameter("addr2");
+								addr2 = addr2 == null ? "" : addr2;%>						
 							<input type="text" class="form-control" id="addr2" name="addr2"
-								placeholder="상세주소" value=""/>
+								placeholder="상세주소" value="<%=addr2%>"/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
+							<% String zipcode = request.getParameter("zipcode");
+								zipcode = zipcode == null ? "" : zipcode;%>						
 							<input type="text" class="form-control" id="zipcode" name="zipcode"
-								placeholder="우편번호" value="" readonly/>
+								placeholder="우편번호" value="<%=zipcode %>" readonly/>
 						</div>
 					</div>
 					

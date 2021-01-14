@@ -52,10 +52,13 @@ public class registUser extends HttpServlet {
 		
 		UserVo userVo = new UserVo(userid, usernm, alias, reg_dt,
 				pass, addr1, addr2, zipcode);
+		
+			int registCnt = 0;
 		try {
-			int registCnt = userService.registUser(userVo);
+			registCnt = userService.registUser(userVo);
 			// 사용자 수정이 정상적으로 된 경우 ==> 해당 사용자의 상세조회 페이지로 이동
 			if(registCnt == 1) {
+				
 				//doGet(req,resp); doGet에 userid값을 받아오기 때문에 가능
 				resp.sendRedirect(req.getContextPath()+"/user?userid="+userid);
 			}
