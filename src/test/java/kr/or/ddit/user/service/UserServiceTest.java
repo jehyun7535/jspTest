@@ -18,33 +18,32 @@ import kr.or.ddit.user.respository.UserDao;
 import kr.or.ddit.user.respository.UserDaoI;
 
 public class UserServiceTest {
-	
-	private UserServiceI userService; 
-	
+
+	private UserServiceI userService;
+
 	@Before
 	public void setup() {
 		userService = new UserService();
 		// 테스트에서 사용할 신규 사용자 추가
-		UserVo userVo = new UserVo("testUser", "테스트용", "1234", new Date(),
-				"테스트", "대전시 중구 중앙로79", "4층", "34940");
+		UserVo userVo = new UserVo("testUser", "테스트용", "1234", new Date(), "테스트", "대전시 중구 중앙로79", "4층", "34940");
 
 		userService.registUser(userVo);
 
 		// 신규 입력 테스트를 위해 테스트 과정에서 입력된 데이터를 삭제
 		userService.deleteUser("ddit_n");
-		
+
 //		@Before		 == >	 @Test registUser 		==> @After
 //		17 + 1(testUser) 	-1(ddit_n) +1 (ddit_n) 	-1(testUser)17
 //		
 //		@Before		 == >	 @Test selectAllUser 		==> @After
 //		17 + 1(testUser) 		16, select결과
 	}
-	
+
 	@After
 	public void tearDown() {
 		userService.deleteUser("testUser");
 	}
-	
+
 	@Test
 	public void selectAllUserTest() {
 		/*** Given ***/
@@ -53,41 +52,41 @@ public class UserServiceTest {
 		List<UserVo> userList = userService.selectAllUser();
 
 		/*** Then ***/
-		assertEquals(19, userList.size());
+		assertEquals(18, userList.size());
 	}
-	
+
 	// 사용자 아이디를 이용하여 특정 사용자 정보 조회
 	@Test
 	public void selectUserTest() {
-		/***Given***/
+		/*** Given ***/
 //		UserDaoI userDao = new UserDao();
 		String userid = "brown";
 		UserServiceI userService = new UserService();
-		/***When***/
+		/*** When ***/
 		UserVo user = userService.selectUser(userid);
-		
-		/***Then***/
+
+		/*** Then ***/
 		assertNotNull(user);
 		assertEquals("브라운", user.getUsernm());
-		
+
 	}
-	
-	//사용자 아이디가 존재하지 않을 때, 특정 사용자 조회
+
+	// 사용자 아이디가 존재하지 않을 때, 특정 사용자 조회
 	@Test
 	public void selectUserNotExsistTest() {
-		/***Given***/
+		/*** Given ***/
 		UserServiceI userService = new UserService();
 		String userid = "brownNotexists";
 
-		/***When***/
+		/*** When ***/
 		UserVo user = userService.selectUser(userid);
-		
-		/***Then***/
+
+		/*** Then ***/
 		assertNull(user);
 
 	}
-	
-	//사용자 페이징 조회 테스트
+
+	// 사용자 페이징 조회 테스트
 	@Test
 	public void selectPagingUserTest() {
 		/*** Given ***/
@@ -99,7 +98,7 @@ public class UserServiceTest {
 		/*** Then ***/
 		assertEquals(2, userList.size());
 	}
-	
+
 	@Test
 	public void modifyUserTest() {
 		/*** Given ***/
@@ -112,7 +111,7 @@ public class UserServiceTest {
 		/*** Then ***/
 		assertEquals(1, updateCnt);
 	}
-	
+
 	@Test
 	public void deleteUserTest() {
 		/*** Given ***/
@@ -122,6 +121,14 @@ public class UserServiceTest {
 		int deleteCnt = userService.deleteUser(userid);
 		/*** Then ***/
 		assertEquals(1, deleteCnt);
+	}	
+		@Test 
+		public void registUserTest() {
+		UserVo userVo = new UserVo("ddit_n", "테스트용", "1234", new Date(), "테스트", "대전시 중구 중앙로79", "4층", "34940");
+			
+		int registCnt = userService.registUser(userVo);
+			
+		assertEquals(1, registCnt);
 
 	}
 }

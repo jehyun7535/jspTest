@@ -23,7 +23,8 @@ public class UserDaoTest {
 	public void setup() {
 		userDao = new UserDao();
 		// 테스트에서 사용할 신규 사용자 추가
-		UserVo userVo = new UserVo("testUser", "테스트용", "1234", new Date(), "테스트", "대전시 중구 중앙로79", "4층", "34940");
+		UserVo userVo = new UserVo("testUser", "테스트용", "1234", new Date(), 
+				"테스트", "대전시 중구 중앙로79", "4층", "34940");
 
 		userDao.registUser(userVo);
 
@@ -52,7 +53,7 @@ public class UserDaoTest {
 		List<UserVo> userList = userDao.selectAllUser();
 
 		/*** Then ***/
-		assertEquals(19, userList.size());
+		assertEquals(18, userList.size());
 	}
 
 	// 사용자 아이디를 이용하여 특정 사용자 정보 조회
@@ -92,7 +93,7 @@ public class UserDaoTest {
 		int userCnt = userDao.selectAllUserCnt();
 
 		/*** Then ***/
-		assertEquals(19, userCnt);
+		assertEquals(18, userCnt);
 	}
 
 	@Test
@@ -118,6 +119,15 @@ public class UserDaoTest {
 		/*** Then ***/
 		assertEquals(1, deleteCnt);
 
+	}
+	
+	@Test
+	public void registUserTest() {
+		UserVo userVo = new UserVo("ddit_n", "테스트용", "1234", new Date(), "테스트", "대전시 중구 중앙로79", "4층", "34940");
+		
+		int registCnt = userDao.registUser(userVo);
+		
+		assertEquals(1, registCnt);
 	}
 }
 
