@@ -109,4 +109,10 @@ public class UserVo {
 		this.alias = alias;
 	}
 
+	@Override
+	public String toString() {
+		return "UserVo [userid=" + userid + ", usernm=" + usernm + ", pass=" + pass + ", reg_dt=" + reg_dt + ", alias="
+				+ alias + ", addr1=" + addr1 + ", addr2=" + addr2 + ", zipcode=" + zipcode + "]";
+	}
+
 }
