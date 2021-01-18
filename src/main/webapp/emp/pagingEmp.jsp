@@ -24,10 +24,30 @@
 <link href="<%=request.getContextPath()%>/css/dashboard.css"
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+
+<script type="text/javascript">
+//문서 로딩이 완료되고 나서 실행되는 영역
+
+$(function() {
+	$(".emp").on("click", function(){
+		//this : 클릭 이벤트가 발생한 element
+		// data-속성명 data-userid, 속성명은 대소문자 무시하고 소문자로 인식
+		// data-userId ==> data-userid
+		var empno = $(this).data("empno");
+		$("#empno").val(empno);
+		$("#frm").submit();
+	});
+});
+
+</script>
+
 </head>
 
 <body>
-
+	<form id="frm" action="<%=request.getContextPath() %>/emp" >
+		<input type="hidden" id="empno" name="empno" value=""/>
+	</form>
+	
 	<%@ include file="/common/header.jsp"%>
 
 	<!-- header.jsp -->
@@ -57,7 +77,7 @@
 
 					for (EmpVo vo : empList) {
 					%>
-					<tr>
+					<tr class="emp" data-empno="<%=vo.getEmpno()%>">
 						<td><%=vo.getEmpno()%></td>
 						<td><%=vo.getEname()%></td>
 						<td><%=vo.getJob()%></td>

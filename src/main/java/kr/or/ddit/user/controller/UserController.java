@@ -16,22 +16,20 @@ import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.user.service.UserServiceI;
 
 @WebServlet("/user")
-public class UserController extends HttpServlet{
-   
-   private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-   private UserServiceI userService = new UserService();
-   
-   @Override
-   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      
-      String userid = req.getParameter("userid");
-      
-      logger.debug("{}", userid);
-      
-      UserVo user = userService.selectUser(userid);
-      
-      req.setAttribute("user", user);
-      
-      req.getRequestDispatcher("/user/user.jsp").forward(req, resp);
-   }
+public class UserController extends HttpServlet {
+
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private UserServiceI userService = new UserService();
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		String userid = req.getParameter("userid");
+
+		UserVo user = userService.selectUser(userid);
+
+		req.setAttribute("user", user);
+
+		req.getRequestDispatcher("/user/user.jsp").forward(req, resp);
+	}
 }

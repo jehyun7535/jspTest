@@ -50,5 +50,36 @@ public class EmpDao implements EmpDaoI{
 		sqlSession.close();
 		return empCnt;
 	}
+
+	@Override
+	public int modifyEmp(EmpVo empVo) {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		int updateCnt = sqlSession.update("emps.modifyEmp", empVo);
+		
+		if(updateCnt==1) {
+			sqlSession.commit();
+		}
+		else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		return updateCnt;
+	}
+
+	@Override
+	public int registEmp(EmpVo empVo) {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		
+		int regisCnt = sqlSession.update("emps.registEmp", empVo);
+		
+		if(regisCnt==1) {
+			sqlSession.commit();
+		}
+		else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		return regisCnt;
+	}
 	
 }

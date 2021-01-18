@@ -1,7 +1,6 @@
 package kr.or.ddit.user.controller;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -14,7 +13,7 @@ import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 
 @WebServlet("/registUser")
-public class registUser extends HttpServlet {
+public class RegistUser extends HttpServlet {
 
 	private UserService userService = new UserService();
 

@@ -13,6 +13,7 @@
 </style>
 </head>
 <body>
+
 <h1>TimesTablesServlet를 jsp로 변환한 구구단 프로그램</h1>
 	<table border="1">
 		<%

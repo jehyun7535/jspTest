@@ -16,6 +16,18 @@ public class EmpVo {
 	public EmpVo() {
 		
 	}
+	
+	public EmpVo(int empno, String ename, String job, Date hiredate, int mgr, 
+			int sal, int comm, int deptno) {
+		this.empno = empno;
+		this.ename = ename;
+		this.job = job;
+		this.mgr = mgr;
+		this.hiredate = hiredate;
+		this.sal = sal;
+		this.comm = comm;
+		this.deptno = deptno;
+	}
 	public int getEmpno() {
 		return empno;
 	}
@@ -77,6 +89,12 @@ public class EmpVo {
 	}
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
+	}
+
+	@Override
+	public String toString() {
+		return "EmpVo [empno=" + empno + ", ename=" + ename + ", job=" + job + ", mgr=" + mgr + ", hiredate=" + hiredate
+				+ ", sal=" + sal + ", comm=" + comm + ", deptno=" + deptno + "]";
 	}
 	
 }

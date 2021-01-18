@@ -17,4 +17,8 @@ public interface EmpDaoI {
 	List<EmpVo> selectPagingEmp(PageVo vo);
 	
 	int selectAllEmpCnt();
+	
+	int modifyEmp(EmpVo empVo);
+	
+	int registEmp(EmpVo empVo);
 }

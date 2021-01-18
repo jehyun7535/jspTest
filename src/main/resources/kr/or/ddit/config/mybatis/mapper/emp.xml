@@ -37,4 +37,19 @@
 		FROM emp
 	</select>
 	
+	<update id = "modifyEmp" parameterType="empVo">
+		UPDATE emp SET ename = #{ename},
+		job= #{job},
+		mgr= #{mgr},
+		hiredate= #{hiredate},
+		sal= #{sal},
+		comm= #{comm}
+		WHERE empno = #{empno}
+	</update>
+	
+	<insert id="registEmp" parameterType="empVo">
+		INSERT INTO emp (empno, ename, job, hiredate, mgr,  sal, comm,  deptno)
+		VALUES (#{empno}, #{ename}, #{job}, #{hiredate}, #{mgr}, #{sal}, #{comm}, #{deptno})
+	</insert>
+	
 </mapper>

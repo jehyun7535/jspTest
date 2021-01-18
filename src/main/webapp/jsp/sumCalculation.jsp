@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action = "<%=request.getContextPath()%>/sumCalculation" method="post">
+	<form action = "${pageContext.request.contextPath}/sumCalculation" method="post">
 	<h1>첫번째 숫자 ~ 두번째 숫자 까지 더하기</h1>
 		<input type ="text" name="start"/>에서 <br>
 		<input type ="text" name="end"/>까지 합 <br><br>

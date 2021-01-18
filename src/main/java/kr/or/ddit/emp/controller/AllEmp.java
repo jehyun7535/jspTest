@@ -1,4 +1,4 @@
-package kr.or.ddit.user.controller;
+package kr.or.ddit.emp.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,7 +24,7 @@ public class AllEmp extends HttpServlet{
 
 	   req.setAttribute("empList", empList);
 	   
-	   req.getRequestDispatcher("/user/allEmp.jsp").forward(req, resp);
+	   req.getRequestDispatcher("/emp/allEmp.jsp").forward(req, resp);
 	   
 	   }
 }

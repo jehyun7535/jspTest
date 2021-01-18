@@ -1,4 +1,4 @@
-package kr.or.ddit.user.controller;
+package kr.or.ddit.emp.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,7 +51,7 @@ public class PagingEmp extends HttpServlet {
 		req.setAttribute("empList", empList);
 		req.setAttribute("pagination", pagination);
 
-		req.getRequestDispatcher("/user/pagingEmp.jsp").forward(req, resp);
+		req.getRequestDispatcher("/emp/pagingEmp.jsp").forward(req, resp);
 		
 	}
 }

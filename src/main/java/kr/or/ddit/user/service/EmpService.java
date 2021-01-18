@@ -37,4 +37,14 @@ public class EmpService implements EmpServiceI{
 	      return map;
 	   
 	}
+
+	@Override
+	public int modifyEmp(EmpVo empVo) {
+		return empDao.modifyEmp(empVo);
+	}
+
+	@Override
+	public int registEmp(EmpVo empVo) {
+		return empDao.registEmp(empVo);
+	}
 }
