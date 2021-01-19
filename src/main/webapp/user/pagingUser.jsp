@@ -24,8 +24,8 @@
 <!-- common_lib.jsp -->
 
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/css/dashboard.css"rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css"rel="stylesheet">
+<link href="${cp}/css/dashboard.css"rel="stylesheet">
+<link href="${cp}/css/blog.css"rel="stylesheet">
 
 <script type="text/javascript">
 	//문서 로딩이 완료되고 나서 실행되는 영역
@@ -46,7 +46,7 @@
 
 <body>
 
-	<form id="frm" action="${pageContext.request.contextPath}/user">
+	<form id="frm" action="${cp}/user">
 		<input type="hidden" id="userid" name="userid" value="" />
 	</form>
 
@@ -88,7 +88,7 @@
 
 				<ul class="pagination">
 					<li class="prev">
-					<a	href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
+					<a	href="${cp}/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
 					</li>
 					
 					<c:forEach begin="1" end="${pagination}" var="i">
@@ -97,13 +97,13 @@
 								<li class="active"><span>${i}</span></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
+								<li><a href="${cp}/pagingUser?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 
 					<li class="next">
-					<a href="${pageContext.request.contextPath}/pagingUser?page=${pagination}&pageSize=${pageVo.pageSize}">»</a>
+					<a href="${cp}/pagingUser?page=${pagination}&pageSize=${pageVo.pageSize}">»</a>
 					</li>
 					
 				</ul>

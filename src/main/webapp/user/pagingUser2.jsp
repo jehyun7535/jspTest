@@ -22,9 +22,9 @@
 <!-- common_lib.jsp -->
 
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/css/dashboard.css"
+<link href="${cp}/css/dashboard.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+<link href="${cp}/css/blog.css" rel="stylesheet">
 
 <script type="text/javascript">
 //문서 로딩이 완료되고 나서 실행되는 영역
