@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +18,7 @@
 	<%-- common_lib.jsp의 내용을 지금 기술되는 부분에 코드를 복사해서 붙여 넣기 --%>
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 	
-    <link href="<%=request.getContextPath() %>/css/signin.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/signin.css" rel="stylesheet">
 
 	<script>		
 	$(document).ready(function(){
@@ -97,9 +98,9 @@
   <body>
 
     <div class="container">
-
+	UNT_CD : ${param.UNT_CD } / <%=request.getParameter("UNT_CD") %>
       <form class="form-signin" id="frm"
-      action="<%=request.getContextPath() %>/loginController" method="Post">
+      action="${pageContext.request.contextPath}/loginController" method="Post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="userid" class="sr-only">user id:</label>
         <input type="text" id="userid" name="userid" class="form-control">

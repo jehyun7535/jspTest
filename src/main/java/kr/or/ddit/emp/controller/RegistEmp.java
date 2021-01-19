@@ -32,9 +32,8 @@ public class RegistEmp extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		logger.debug("reg dopost 진입");
-		req.setCharacterEncoding("UTF-8");
-
+//		req.setCharacterEncoding("UTF-8");
+		logger.debug("java encoding");
 		int empno = Integer.parseInt(req.getParameter("empNo"));
 		String ename = req.getParameter("ename");
 		String job = req.getParameter("job");

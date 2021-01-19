@@ -27,7 +27,7 @@ public class PagingEmp extends HttpServlet {
 		// doGet 메소드에서 page, pageSize 파라미터가 request 객체에 존재 하지 않을 때
 		// page는 1로, pageSize 5로 생각을 코드를 작성
 		// 파라미터가 존재하면 해당 파라미터를 이용
-		req.setCharacterEncoding("UTF-8");
+//		req.setCharacterEncoding("UTF-8");
 
 		// if/else ==> ?//조건 ? true 일때 반환할 값 : false일때 반환할 값(삼항연산자)
 		// refactoring : 코드를 (깔끔하게)바꾸는데 기존 동작방식을 유지한채로 변경하는 기법

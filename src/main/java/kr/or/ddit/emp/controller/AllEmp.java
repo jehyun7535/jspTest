@@ -18,7 +18,7 @@ public class AllEmp extends HttpServlet{
 	   private EmpService empService = new EmpService();
 	   @Override
 	   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		 req.setCharacterEncoding("UTF-8");
+//		 req.setCharacterEncoding("UTF-8");
 		   
 	   List<EmpVo> empList = empService.selectAllEmp();
 

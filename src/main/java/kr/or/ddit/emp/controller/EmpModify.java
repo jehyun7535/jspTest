@@ -33,7 +33,7 @@ public class EmpModify extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
+//		req.setCharacterEncoding("utf-8");
 		
 		int empno = Integer.parseInt(req.getParameter("empno"));
 		String ename= req.getParameter("ename");

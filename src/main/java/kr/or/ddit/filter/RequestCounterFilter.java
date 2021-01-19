@@ -36,7 +36,6 @@ public class RequestCounterFilter implements Filter{
 		HttpServletRequest req = (HttpServletRequest)request;
 		String uri = req.getRequestURI();
 		
-		req.setCharacterEncoding("UTF-8");
 //		logger.debug("request uri : {}", uri);
 		//requestCountMap에 uri에 해당 키가 있을수도 있고 없을 수도 있음
 		//최초 요청인 경우
