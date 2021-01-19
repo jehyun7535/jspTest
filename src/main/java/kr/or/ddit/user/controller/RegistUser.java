@@ -9,12 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 
 @WebServlet("/registUser")
 public class RegistUser extends HttpServlet {
-
+private static final Logger logger = LoggerFactory.getLogger(RegistUser.class);
 	private UserService userService = new UserService();
 
 	@Override
@@ -29,8 +32,8 @@ public class RegistUser extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 파라미터를 읽기 전에 실행
 		// servlet의 doPost 메소드 마다 실행 필요 ==> Filter
-		req.setCharacterEncoding("UTF-8");
-		
+//		req.setCharacterEncoding("UTF-8");
+//		logger.debug("java {}");
 		String userid = req.getParameter("userId");
 		String usernm = req.getParameter("usernm");
 		String pass = req.getParameter("pass");

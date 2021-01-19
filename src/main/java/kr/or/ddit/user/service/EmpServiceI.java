@@ -21,4 +21,5 @@ public interface EmpServiceI {
 	
 	int registEmp(EmpVo empVo);
 	
+	int deleteEmp(int empno);
 }

@@ -81,5 +81,21 @@ public class EmpDao implements EmpDaoI{
 		sqlSession.close();
 		return regisCnt;
 	}
+
+	@Override
+	public int deleteEmp(int empno) {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		
+		int deleteCnt = sqlSession.delete("emps.deleteEmp", empno);
+		
+		if(deleteCnt==1) {
+			sqlSession.commit();
+		}
+		else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		return deleteCnt;
+	}
 	
 }

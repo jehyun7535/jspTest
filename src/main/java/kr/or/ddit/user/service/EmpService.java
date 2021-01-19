@@ -47,4 +47,9 @@ public class EmpService implements EmpServiceI{
 	public int registEmp(EmpVo empVo) {
 		return empDao.registEmp(empVo);
 	}
+
+	@Override
+	public int deleteEmp(int empno) {
+		return empDao.deleteEmp(empno);
+	}
 }

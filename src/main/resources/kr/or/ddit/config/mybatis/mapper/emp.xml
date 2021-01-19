@@ -52,4 +52,9 @@
 		VALUES (#{empno}, #{ename}, #{job}, #{hiredate}, #{mgr}, #{sal}, #{comm}, #{deptno})
 	</insert>
 	
+	<delete id="deleteEmp" parameterType="int">
+		DELETE emp
+		WHERE empno = #{value}
+	</delete>
+	
 </mapper>

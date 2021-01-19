@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,8 +59,11 @@ public class LoginController extends HttpServlet{
       // 2. userid, pass 값이 저장한 값과 일치하는지 비교
       if(user != null && pass.equals(user.getPass())) {
          // 3. 2번 비교 사항이 true일 때 webapp/main.jsp로 forward ( main.jsp는 생성 )
-         req.getRequestDispatcher("/main.jsp").forward(req, resp);
-      } else {
+          HttpSession session = req.getSession();
+          session.setAttribute("S_USER", user);
+    	  req.getRequestDispatcher("/main.jsp").forward(req, resp);
+      } 
+      else {
          // 4. 2번 비교 사항이 false일 때 webapp/login.jsp로 redirect
          resp.sendRedirect(req.getContextPath()+"/login.jsp");
       }

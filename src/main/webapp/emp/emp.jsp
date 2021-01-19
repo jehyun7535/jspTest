@@ -32,6 +32,12 @@ $(function() {
 		$("#frm").attr("action", "<%=request.getContextPath()%>/empModify");
 		$("#frm").submit();
 	});
+	
+	$("#deleteBtn").on("click", function(){
+		$("#frm").attr("method", "post");
+		$("#frm").attr("action", "<%=request.getContextPath()%>/deleteEmp");
+		$("#frm").submit();
+	});
 })
 </script>
 </head>
@@ -63,7 +69,7 @@ $(function() {
 					</div>
 
 					<div class="form-group">
-						<label for="usernm" class="col-sm-2 control-label">사원이름</label>
+						<label for="empnm" class="col-sm-2 control-label">사원이름</label>
 						<div class="col-sm-10">
 							<label class="control-label"><%=emp.getEname() %></label>
 						</div>
@@ -116,6 +122,7 @@ $(function() {
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 							<button type="button" id="modifyBtn" class="btn btn-default">사용자 수정</button>
+							<button type="button" id="deleteBtn" class="btn btn-default">사용자 삭제</button>
 						</div>
 					</div>
 				</form>

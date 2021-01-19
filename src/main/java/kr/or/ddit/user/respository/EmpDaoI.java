@@ -21,4 +21,6 @@ public interface EmpDaoI {
 	int modifyEmp(EmpVo empVo);
 	
 	int registEmp(EmpVo empVo);
+	
+	int deleteEmp(int empno);
 }
