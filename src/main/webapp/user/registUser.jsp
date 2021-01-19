@@ -57,7 +57,6 @@ $(function(){
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				
-				<% UserVo user = (UserVo)request.getAttribute("user"); %>
 				
 				contextPath-el
 				<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/registUser">

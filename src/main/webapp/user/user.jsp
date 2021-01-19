@@ -2,7 +2,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,70 +57,69 @@ $(function() {
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-				<% UserVo user = (UserVo)request.getAttribute("user"); %>
 				<form class="form-horizontal" id="frm" role="form">
 
-					<input type="hidden" name="userid" value="<%=user.getUserid()%>" />
+					<input type="hidden" name="userid" value="${user.getUserid()}" />
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img src="${pageContext.request.contextPath}/profile/<%=user.getUserid() %>.png"/>
+							<img src="${pageContext.request.contextPath}/profile/${user.getUserid()}.png"/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=user.getUserid() %></label>
+							<label class="control-label">${user.getUserid()}</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=user.getUsernm() %></label>
+							<label class="control-label">${user.getUsernm()}</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=user.getAlias() %></label>
+							<label class="control-label">${user.getAlias()}</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=user.getPass() %></label>
+							<label class="control-label">${user.getPass()}</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">등록일자</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=user.getReg_dt_fmt() %></label>
+							<label class="control-label"><fmt:formatDate value="${user.reg_dt}" pattern="yyyy.MM.dd"/></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=user.getAddr1() %></label>
+							<label class="control-label">${user.getAddr1()}</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=user.getAddr2() %></label>
+							<label class="control-label">${user.getAddr2()}</label>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=user.getZipcode() %></label>
+							<label class="control-label">${user.getZipcode()}</label>
 						</div>
 					</div>
 
